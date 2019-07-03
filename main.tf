@@ -9,13 +9,16 @@ module "aws_deploy-main-us-west-2" {
   spot_nodes        = 0
   gateway_nodes_min = 2
   gateway_nodes_max = 30
-  dns_zone          = "${var.dns_zone}"
-  gateway_dns       = "origin-${var.domain}"
-  spot_price        = "0.15"
-  instance_type     = "t3.large"
-  ami_name          = "aeternity-ubuntu-16.04-v1549009934"
-  root_volume_size  = 40
 
+  # Obsolete variables
+  dns_zone    = ""
+  gateway_dns = ""
+
+  spot_price    = "0.15"
+  instance_type = "t3.large"
+  ami_name      = "aeternity-ubuntu-16.04-v1549009934"
+
+  root_volume_size        = 40
   additional_storage      = 1
   additional_storage_size = 30
 
@@ -39,14 +42,16 @@ module "aws_deploy-main-eu-north-1" {
   spot_nodes        = 0
   gateway_nodes_min = 2
   gateway_nodes_max = 30
-  dns_zone          = "${var.dns_zone}"
-  gateway_dns       = "origin-${var.domain}"
 
-  spot_price       = "0.15"
-  instance_type    = "t3.large"
-  ami_name         = "aeternity-ubuntu-16.04-v1549009934"
-  root_volume_size = 40
+  # Obsolete variables
+  dns_zone    = ""
+  gateway_dns = ""
 
+  spot_price    = "0.15"
+  instance_type = "t3.large"
+  ami_name      = "aeternity-ubuntu-16.04-v1549009934"
+
+  root_volume_size        = 40
   additional_storage      = 1
   additional_storage_size = 30
 
@@ -79,8 +84,4 @@ module "aws_gateway" {
     "us-west-2",
     "eu-north-1",
   ]
-
-  providers = {
-    aws = "aws.us-east-1"
-  }
 }
