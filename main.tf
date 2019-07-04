@@ -85,3 +85,32 @@ module "aws_gateway" {
     "eu-north-1",
   ]
 }
+
+resource "aws_acm_certificate" "cert" {
+  domain_name               = "${var.new_domain}"
+  subject_alternative_names = ["${var.domain_alias}"]
+  validation_method         = "DNS"
+}
+
+module "new_aws_gateway" {
+  source   = "github.com/aeternity/terraform-aws-api-gateway?ref=v2.1.0"
+  dns_zone = "${var.new_dns_zone}"
+  api_dns  = "${var.new_domain}"
+
+  certificate_arn = "${aws_acm_certificate.cert.arn}"
+
+  loadbalancers = [
+    "${module.aws_deploy-main-us-west-2.gateway_lb_dns}",
+    "${module.aws_deploy-main-eu-north-1.gateway_lb_dns}",
+  ]
+
+  loadbalancers_zones = [
+    "${module.aws_deploy-main-us-west-2.gateway_lb_zone_id}",
+    "${module.aws_deploy-main-eu-north-1.gateway_lb_zone_id}",
+  ]
+
+  loadbalancers_regions = [
+    "us-west-2",
+    "eu-north-1",
+  ]
+}

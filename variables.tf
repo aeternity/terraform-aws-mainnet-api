@@ -21,3 +21,12 @@ variable "domain" {
 variable "domain_alias" {
   default = "sdk-mainnet.aepps.com"
 }
+
+# Second set of variables until migration
+variable "new_dns_zone" {
+  default = "ZSEEAAX46MKWZ"
+}
+
+variable "new_domain" {
+  default = "mainnet.aeternity.io"
+}
