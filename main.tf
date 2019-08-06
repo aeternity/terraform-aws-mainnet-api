@@ -118,12 +118,12 @@ module "nodes_api_main_stockholm" {
 }
 
 module "lb_main_stockholm" {
-  source                    = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.0.0"
-  fqdn                      = "${var.lb_fqdn}"
-  dns_zone                  = "${var.dns_zone}"
-  security_group            = "${module.nodes_api_main_stockholm.sg_id}"
-  vpc_id                    = "${module.nodes_api_main_stockholm.vpc_id}"
-  subnets                   = "${module.nodes_api_main_stockholm.subnets}"
+  source         = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.0.0"
+  fqdn           = "${var.lb_fqdn}"
+  dns_zone       = "${var.dns_zone}"
+  security_group = "${module.nodes_api_main_stockholm.sg_id}"
+  vpc_id         = "${module.nodes_api_main_stockholm.vpc_id}"
+  subnets        = "${module.nodes_api_main_stockholm.subnets}"
 
   providers = {
     aws = "aws.eu-north-1"
@@ -164,12 +164,12 @@ module "nodes_api_main_oregon" {
 }
 
 module "lb_main_oregon" {
-  source                    = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.0.0"
-  fqdn                      = "${var.lb_fqdn}"
-  dns_zone                  = "${var.dns_zone}"
-  security_group            = "${module.nodes_api_main_oregon.sg_id}"
-  vpc_id                    = "${module.nodes_api_main_oregon.vpc_id}"
-  subnets                   = "${module.nodes_api_main_oregon.subnets}"
+  source         = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.0.0"
+  fqdn           = "${var.lb_fqdn}"
+  dns_zone       = "${var.dns_zone}"
+  security_group = "${module.nodes_api_main_oregon.sg_id}"
+  vpc_id         = "${module.nodes_api_main_oregon.vpc_id}"
+  subnets        = "${module.nodes_api_main_oregon.subnets}"
 
   providers = {
     aws = "aws.us-west-2"
@@ -179,10 +179,10 @@ module "lb_main_oregon" {
 ## CDN ##
 
 module "gateway_main" {
-  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=v3.0.1"
-  env             = "api_main"
-  dns_zone        = var.dns_zone
-  api_domain      = var.domain
+  source     = "github.com/aeternity/terraform-aws-api-gateway?ref=v3.0.1"
+  env        = "api_main"
+  dns_zone   = var.dns_zone
+  api_domain = var.domain
   # More than one distribution cannot hold the same CNAME, needs a manual swap
   # api_aliases     = [var.domain_alias]
   certificate_arn = aws_acm_certificate_validation.cert.certificate_arn
