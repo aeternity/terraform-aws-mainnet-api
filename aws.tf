@@ -7,20 +7,20 @@ terraform {
   }
 }
 
+# Default provider
 provider "aws" {
-  version = "1.55"
+  version = "2.19.0"
+  region  = "us-east-1"
+}
+
+provider "aws" {
+  version = "2.19.0"
   region  = "us-west-2"
   alias   = "us-west-2"
 }
 
 provider "aws" {
-  version = "1.55"
-  region  = "us-east-1"
-  alias   = "us-east-1"
-}
-
-provider "aws" {
-  version = "1.55"
+  version = "2.19.0"
   region  = "eu-north-1"
   alias   = "eu-north-1"
 }
