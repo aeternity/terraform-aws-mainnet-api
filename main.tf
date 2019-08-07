@@ -2,7 +2,7 @@
 module "aws_deploy-main-us-west-2" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v1.2.0"
   env               = "api_main"
-  bootstrap_version = "${var.bootstrap_version}"
+  bootstrap_version = "v2.6.2"
   vault_role        = "ae-node"
   vault_addr        = "${var.vault_addr}"
 
@@ -32,7 +32,7 @@ module "aws_deploy-main-us-west-2" {
 module "aws_deploy-main-eu-north-1" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v1.2.0"
   env               = "api_main"
-  bootstrap_version = "${var.bootstrap_version}"
+  bootstrap_version = "v2.6.2"
   vault_role        = "ae-node"
   vault_addr        = "${var.vault_addr}"
 
