@@ -25,15 +25,3 @@ variable "domain" {
 variable "domain_alias" {
   default = "sdk-mainnet.aepps.com"
 }
-
-variable "old_dns_zone" {
-  default = "Z2J3KVPABDNIL1"
-}
-
-variable "old_domain" {
-  default = "api.mainnet.ops.aeternity.com"
-}
-
-variable "old_package" {
-  default = "https://releases.ops.aeternity.com/aeternity-3.0.1-ubuntu-x86_64.tar.gz"
-}
