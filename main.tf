@@ -32,7 +32,7 @@ module "nodes_api_main_stockholm" {
 }
 
 module "lb_main_stockholm" {
-  source         = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=config_tune"
+  source         = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.1.0"
   env            = "api_main"
   fqdn           = "${var.lb_fqdn}"
   dns_zone       = "${var.dns_zone}"
@@ -79,7 +79,7 @@ module "nodes_api_main_oregon" {
 }
 
 module "lb_main_oregon" {
-  source         = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=config_tune"
+  source         = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.1.0"
   env            = "api_main"
   fqdn           = "${var.lb_fqdn}"
   dns_zone       = "${var.dns_zone}"
