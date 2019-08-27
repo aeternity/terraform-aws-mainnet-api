@@ -32,14 +32,14 @@ module "nodes_api_main_stockholm" {
 }
 
 module "lb_main_stockholm" {
-  source         = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.1.0"
-  env            = "api_main"
-  fqdn           = "${var.lb_fqdn}"
-  dns_zone       = "${var.dns_zone}"
-  security_group = "${module.nodes_api_main_stockholm.sg_id}"
-  vpc_id         = "${module.nodes_api_main_stockholm.vpc_id}"
-  subnets        = "${module.nodes_api_main_stockholm.subnets}"
-
+  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.2.0"
+  env             = "api_main"
+  fqdn            = "${var.lb_fqdn}"
+  dns_zone        = "${var.dns_zone}"
+  security_group  = "${module.nodes_api_main_stockholm.sg_id}"
+  vpc_id          = "${module.nodes_api_main_stockholm.vpc_id}"
+  subnets         = "${module.nodes_api_main_stockholm.subnets}"
+  dry_run_enabled = true
   providers = {
     aws = "aws.eu-north-1"
   }
@@ -79,13 +79,14 @@ module "nodes_api_main_oregon" {
 }
 
 module "lb_main_oregon" {
-  source         = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.1.0"
-  env            = "api_main"
-  fqdn           = "${var.lb_fqdn}"
-  dns_zone       = "${var.dns_zone}"
-  security_group = "${module.nodes_api_main_oregon.sg_id}"
-  vpc_id         = "${module.nodes_api_main_oregon.vpc_id}"
-  subnets        = "${module.nodes_api_main_oregon.subnets}"
+  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.2.0"
+  env             = "api_main"
+  fqdn            = "${var.lb_fqdn}"
+  dns_zone        = "${var.dns_zone}"
+  security_group  = "${module.nodes_api_main_oregon.sg_id}"
+  vpc_id          = "${module.nodes_api_main_oregon.vpc_id}"
+  subnets         = "${module.nodes_api_main_oregon.subnets}"
+  dry_run_enabled = true
 
   providers = {
     aws = "aws.us-west-2"
