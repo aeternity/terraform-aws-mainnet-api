@@ -96,7 +96,7 @@ module "lb_main_oregon" {
 ## CDN ##
 
 module "gateway_main" {
-  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=167038727_mdw_proxy"
+  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=v3.0.1"
   env             = "api_main"
   dns_zone        = var.dns_zone
   api_domain      = var.domain
