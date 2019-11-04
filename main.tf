@@ -18,7 +18,7 @@ module "nodes_api_main_stockholm" {
 
   additional_storage      = true
   additional_storage_size = 100
-  snapshot_filename       = "mnesia_main_v-1_latest.gz"
+  snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   asg_target_groups = "${module.lb_main_stockholm.target_groups}"
 
@@ -65,7 +65,7 @@ module "nodes_api_main_oregon" {
 
   additional_storage      = true
   additional_storage_size = 100
-  snapshot_filename       = "mnesia_main_v-1_latest.gz"
+  snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   asg_target_groups = module.lb_main_oregon.target_groups
 
