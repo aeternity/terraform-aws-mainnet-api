@@ -17,7 +17,7 @@ module "nodes_api_main_stockholm" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 30
+  additional_storage_size = 100
   snapshot_filename       = "mnesia_main_v-1_latest.gz"
 
   asg_target_groups = "${module.lb_main_stockholm.target_groups}"
@@ -64,7 +64,7 @@ module "nodes_api_main_oregon" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 30
+  additional_storage_size = 100
   snapshot_filename       = "mnesia_main_v-1_latest.gz"
 
   asg_target_groups = module.lb_main_oregon.target_groups
