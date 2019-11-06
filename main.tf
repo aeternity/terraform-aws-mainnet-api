@@ -1,12 +1,12 @@
 ### Stockholm nodes and load-balancer ###
 
 module "nodes_api_main_stockholm" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.1.0"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.3.1"
   env               = "api_main"
   envid             = "api_main"
-  bootstrap_version = "${var.bootstrap_version}"
+  bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
-  vault_addr        = "${var.vault_addr}"
+  vault_addr        = var.vault_addr
 
   static_nodes   = 0
   spot_nodes_min = 2
@@ -17,8 +17,8 @@ module "nodes_api_main_stockholm" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 30
-  snapshot_filename       = "mnesia_main_v-1_latest.gz"
+  additional_storage_size = 100
+  snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   asg_target_groups = "${module.lb_main_stockholm.target_groups}"
 
@@ -34,11 +34,11 @@ module "nodes_api_main_stockholm" {
 module "lb_main_stockholm" {
   source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.2.0"
   env             = "api_main"
-  fqdn            = "${var.lb_fqdn}"
-  dns_zone        = "${var.dns_zone}"
-  security_group  = "${module.nodes_api_main_stockholm.sg_id}"
-  vpc_id          = "${module.nodes_api_main_stockholm.vpc_id}"
-  subnets         = "${module.nodes_api_main_stockholm.subnets}"
+  fqdn            = var.lb_fqdn
+  dns_zone        = var.dns_zone
+  security_group  = module.nodes_api_main_stockholm.sg_id
+  vpc_id          = module.nodes_api_main_stockholm.vpc_id
+  subnets         = module.nodes_api_main_stockholm.subnets
   dry_run_enabled = true
   providers = {
     aws = "aws.eu-north-1"
@@ -48,12 +48,12 @@ module "lb_main_stockholm" {
 ### Oregon nodes and load-balancer ###
 
 module "nodes_api_main_oregon" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.1.0"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.3.1"
   env               = "api_main"
   envid             = "api_main"
-  bootstrap_version = "${var.bootstrap_version}"
+  bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
-  vault_addr        = "${var.vault_addr}"
+  vault_addr        = var.vault_addr
 
   static_nodes   = 0
   spot_nodes_min = 2
@@ -64,13 +64,13 @@ module "nodes_api_main_oregon" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 30
-  snapshot_filename       = "mnesia_main_v-1_latest.gz"
+  additional_storage_size = 100
+  snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
-  asg_target_groups = "${module.lb_main_oregon.target_groups}"
+  asg_target_groups = module.lb_main_oregon.target_groups
 
   aeternity = {
-    package = "${var.package}"
+    package = var.package
   }
 
   providers = {
@@ -81,11 +81,11 @@ module "nodes_api_main_oregon" {
 module "lb_main_oregon" {
   source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.2.0"
   env             = "api_main"
-  fqdn            = "${var.lb_fqdn}"
-  dns_zone        = "${var.dns_zone}"
-  security_group  = "${module.nodes_api_main_oregon.sg_id}"
-  vpc_id          = "${module.nodes_api_main_oregon.vpc_id}"
-  subnets         = "${module.nodes_api_main_oregon.subnets}"
+  fqdn            = var.lb_fqdn
+  dns_zone        = var.dns_zone
+  security_group  = module.nodes_api_main_oregon.sg_id
+  vpc_id          = module.nodes_api_main_oregon.vpc_id
+  subnets         = module.nodes_api_main_oregon.subnets
   dry_run_enabled = true
 
   providers = {
