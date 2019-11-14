@@ -25,3 +25,7 @@ variable "domain" {
 variable "domain_alias" {
   default = "sdk-mainnet.aepps.com"
 }
+
+variable "mdw_fqdn" {
+  default = "mdw.aepps.com"
+}
