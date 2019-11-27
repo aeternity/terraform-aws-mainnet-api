@@ -24,3 +24,9 @@ provider "aws" {
   region  = "eu-north-1"
   alias   = "eu-north-1"
 }
+
+provider "aws" {
+  version = "2.19.0"
+  region  = "ap-southeast-1"
+  alias   = "ap-southeast-1"
+}
