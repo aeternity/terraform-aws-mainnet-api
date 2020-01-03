@@ -12,8 +12,8 @@ module "nodes_api_main_stockholm" {
   spot_nodes_min = 2
   spot_nodes_max = 20
 
-  spot_price    = "0.06"
-  instance_type = "t3.large"
+  spot_price    = "0.10"
+  instance_type = "c5.xlarge"
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
@@ -59,8 +59,8 @@ module "nodes_api_main_oregon" {
   spot_nodes_min = 2
   spot_nodes_max = 20
 
-  spot_price    = "0.06"
-  instance_type = "t3.large"
+  spot_price    = "0.10"
+  instance_type = "c5.xlarge"
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
@@ -107,8 +107,8 @@ module "nodes_api_main_singapore" {
   spot_nodes_min = 2
   spot_nodes_max = 20
 
-  spot_price    = "0.06"
-  instance_type = "t3.large"
+  spot_price    = "0.10"
+  instance_type = "c5.xlarge"
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
