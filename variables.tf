@@ -27,5 +27,5 @@ variable "domain_alias" {
 }
 
 variable "mdw_fqdn" {
-  default = "aeternal.io"
+  default = "mainnet.aeternal.io"
 }
