@@ -144,12 +144,12 @@ module "lb_main_singapore" {
 ## CDN ##
 
 module "gateway_main" {
-  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=v3.1.1"
+  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=v3.2.0"
   env             = "api_main"
   dns_zone        = var.dns_zone
   api_domain      = var.domain
-  api_aliases     = [var.domain_alias]
-  certificate_arn = aws_acm_certificate_validation.cert.certificate_arn
+  api_aliases     = var.domain_aliases
+  certificate_arn = var.certificate_arn
   lb_fqdn         = var.lb_fqdn
   mdw_fqdn        = var.mdw_fqdn
 }
