@@ -7,7 +7,7 @@ variable "bootstrap_version" {
 }
 
 variable "package" {
-  default = "https://releases.aeternity.io/aeternity-5.2.0-ubuntu-x86_64.tar.gz"
+  default = "https://releases.aeternity.io/aeternity-5.5.0-ubuntu-x86_64.tar.gz"
 }
 
 variable "dns_zone" {
@@ -33,4 +33,8 @@ variable "mdw_fqdn" {
 
 variable "certificate_arn" {
   default = "arn:aws:acm:us-east-1:106102538874:certificate/fd311c12-9e1c-4e98-bc7a-d8f2f80c7247"
+}
+
+variable "headers" {
+  default = ["Accept-Charset", "Origin"]
 }
