@@ -152,4 +152,5 @@ module "gateway_main" {
   certificate_arn = var.certificate_arn
   lb_fqdn         = var.lb_fqdn
   mdw_fqdn        = var.mdw_fqdn
+  headers         = var.headers
 }
