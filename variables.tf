@@ -36,5 +36,5 @@ variable "certificate_arn" {
 }
 
 variable "headers" {
-  default = ["Accept-Charset", "Origin"]
+  default = ["Accept-Encoding", "Origin"]
 }
