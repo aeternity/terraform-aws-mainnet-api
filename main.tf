@@ -153,4 +153,7 @@ module "gateway_main" {
   lb_fqdn         = var.lb_fqdn
   mdw_fqdn        = var.mdw_fqdn
   headers         = var.headers
+
+  api_cache_default_ttl = 1
+  mdw_cache_default_ttl = 3
 }
