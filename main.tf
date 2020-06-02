@@ -32,7 +32,7 @@ module "nodes_api_main_stockholm" {
 }
 
 module "lb_main_stockholm" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.2.0"
+  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.3.1"
   env             = "api_main"
   fqdn            = var.lb_fqdn
   dns_zone        = var.dns_zone
@@ -152,6 +152,8 @@ module "gateway_main" {
   certificate_arn = var.certificate_arn
   lb_fqdn         = var.lb_fqdn
   mdw_fqdn        = var.mdw_fqdn
+  ae_mdw_fqdn     = var.ae_mdw_fqdn
+  ch_fqdn         = module.lb_main_stockholm.dns_name
   headers         = var.headers
 
   api_cache_default_ttl = 1

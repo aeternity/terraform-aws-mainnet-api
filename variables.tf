@@ -38,3 +38,7 @@ variable "certificate_arn" {
 variable "headers" {
   default = ["Accept-Encoding", "Origin"]
 }
+
+variable "ae_mdw_fqdn" {
+  default = "mdw.main.aeternity.io"
+}
