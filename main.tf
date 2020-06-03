@@ -144,7 +144,7 @@ module "lb_main_singapore" {
 ## CDN ##
 
 module "gateway_main" {
-  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=v3.2.0"
+  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=v3.2.2"
   env             = "api_main"
   dns_zone        = var.dns_zone
   api_domain      = var.domain
