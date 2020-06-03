@@ -40,5 +40,5 @@ variable "headers" {
 }
 
 variable "ae_mdw_fqdn" {
-  default = "mdw.main.aeternity.io"
+  default = "mdw.mainnet.aeternity.io"
 }
