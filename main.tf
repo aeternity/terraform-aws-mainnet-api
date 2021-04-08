@@ -27,7 +27,7 @@ module "nodes_api_main_stockholm" {
   }
 
   providers = {
-    aws = "aws.eu-north-1"
+    aws = aws.eu-north-1
   }
 }
 
@@ -41,7 +41,7 @@ module "lb_main_stockholm" {
   subnets         = module.nodes_api_main_stockholm.subnets
   dry_run_enabled = true
   providers = {
-    aws = "aws.eu-north-1"
+    aws = aws.eu-north-1
   }
 }
 
@@ -74,7 +74,7 @@ module "nodes_api_main_oregon" {
   }
 
   providers = {
-    aws = "aws.us-west-2"
+    aws = aws.us-west-2
   }
 }
 
@@ -89,7 +89,7 @@ module "lb_main_oregon" {
   dry_run_enabled = true
 
   providers = {
-    aws = "aws.us-west-2"
+    aws = aws.us-west-2
   }
 }
 
@@ -122,7 +122,7 @@ module "nodes_api_main_singapore" {
   }
 
   providers = {
-    aws = "aws.ap-southeast-1"
+    aws = aws.ap-southeast-1
   }
 }
 
@@ -137,7 +137,7 @@ module "lb_main_singapore" {
   dry_run_enabled = true
 
   providers = {
-    aws = "aws.ap-southeast-1"
+    aws = aws.ap-southeast-1
   }
 }
 
