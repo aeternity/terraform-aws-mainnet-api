@@ -3,7 +3,7 @@ variable "vault_addr" {
 }
 
 variable "bootstrap_version" {
-  default = "v2.10.0"
+  default = "v2.12.2"
 }
 
 variable "package" {
@@ -23,7 +23,7 @@ variable "domain" {
 }
 
 variable "domain_aliases" {
-  type    = "list"
+  type    = list
   default = ["sdk-mainnet.aepps.com", "mdw.aepps.com"]
 }
 
