@@ -24,7 +24,7 @@ commands:
       - run:
           name: Terraform init
           command: |
-            envdir /secrets terraform init -chdir=<< parameters.path >> -lock-timeout=<< parameters.lock_timeout >>
+            envdir /secrets terraform -chdir=<< parameters.path >> init -lock-timeout=<< parameters.lock_timeout >>
 
   terraform_validate:
     description: Format check and validate. Requires init.
