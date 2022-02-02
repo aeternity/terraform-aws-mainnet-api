@@ -23,12 +23,12 @@ variable "domain" {
 }
 
 variable "domain_aliases" {
-  type    = list
+  type    = list(any)
   default = ["sdk-mainnet.aepps.com", "mdw.aepps.com"]
 }
 
 variable "mdw_fqdn" {
-  default = "mainnet.aeternal.io"
+  default = "mainnet.aeternal.aeternity.io"
 }
 
 variable "certificate_arn" {
