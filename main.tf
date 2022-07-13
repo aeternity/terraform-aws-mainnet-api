@@ -14,7 +14,7 @@ module "nodes_api_main_stockholm" {
 
   spot_price    = "0.10"
   instance_type = "c5.xlarge"
-  ami_name      = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
   additional_storage_size = 200
@@ -56,7 +56,7 @@ module "nodes_api_main_oregon" {
 
   spot_price    = "0.10"
   instance_type = "c5.xlarge"
-  ami_name      = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
   additional_storage_size = 200
@@ -99,7 +99,7 @@ module "nodes_api_main_singapore" {
 
   spot_price    = "0.10"
   instance_type = "c5.xlarge"
-  ami_name      = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
   additional_storage_size = 200
