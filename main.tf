@@ -17,7 +17,7 @@ module "nodes_api_main_stockholm" {
   ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
-  additional_storage_size = 200
+  additional_storage_size = 500
 
   asg_target_groups = module.lb_main_stockholm.target_groups
 
@@ -59,7 +59,7 @@ module "nodes_api_main_oregon" {
   ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
-  additional_storage_size = 200
+  additional_storage_size = 500
 
   asg_target_groups = module.lb_main_oregon.target_groups
 
@@ -102,7 +102,7 @@ module "nodes_api_main_singapore" {
   ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
-  additional_storage_size = 200
+  additional_storage_size = 500
 
   asg_target_groups = module.lb_main_singapore.target_groups
 
