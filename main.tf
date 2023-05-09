@@ -54,7 +54,7 @@ module "nodes_api_main_oregon" {
   spot_nodes_min = 2
   spot_nodes_max = 20
 
-  spot_price    = "0.10"
+  spot_price    = "0.15"
   instance_type = "c5.xlarge"
   ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
@@ -97,7 +97,7 @@ module "nodes_api_main_singapore" {
   spot_nodes_min = 2
   spot_nodes_max = 20
 
-  spot_price    = "0.10"
+  spot_price    = "0.15"
   instance_type = "c5.xlarge"
   ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
