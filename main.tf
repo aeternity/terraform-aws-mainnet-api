@@ -1,25 +1,35 @@
 ### Stockholm nodes and load-balancer ###
 
 module "nodes_api_main_stockholm" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.6.1"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
   env               = "api_main"
-  envid             = "api_main"
-  bootstrap_version = var.bootstrap_version
-  vault_role        = "ae-node"
-  vault_addr        = var.vault_addr
 
   static_nodes   = 0
   spot_nodes_min = 2
   spot_nodes_max = 20
 
-  spot_price    = "0.10"
-  instance_type = "c5.xlarge"
-  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
+  instance_type  = "c6i.xlarge"
+  instance_types = ["c6i.xlarge", "c5d.xlarge", "c5.xlarge", "c7i.xlarge"]
+  ami_name       = "aeternity-ubuntu-18.04-v1653564902"
 
+  root_volume_size        = 8
   additional_storage      = true
   additional_storage_size = 500
 
   asg_target_groups = module.lb_main_stockholm.target_groups
+
+  tags = {
+    role  = "aenode"
+    env   = "api_main"
+    envid = "api_main"
+  }
+
+  config_tags = {
+    bootstrap_version = var.bootstrap_version
+    vault_role        = "ae-node"
+    vault_addr        = var.vault_addr
+    node_config       = "secret/aenode/config/api_main"
+  }
 
   providers = {
     aws = aws.eu-north-1
@@ -27,7 +37,7 @@ module "nodes_api_main_stockholm" {
 }
 
 module "lb_main_stockholm" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.3.4"
+  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.4.0"
   env             = "api_main"
   fqdn            = var.lb_fqdn
   dns_zone        = var.dns_zone
@@ -43,25 +53,35 @@ module "lb_main_stockholm" {
 ### Oregon nodes and load-balancer ###
 
 module "nodes_api_main_oregon" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.6.1"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
   env               = "api_main"
-  envid             = "api_main"
-  bootstrap_version = var.bootstrap_version
-  vault_role        = "ae-node"
-  vault_addr        = var.vault_addr
 
   static_nodes   = 0
   spot_nodes_min = 2
   spot_nodes_max = 20
 
-  spot_price    = "0.15"
-  instance_type = "c5.xlarge"
-  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
+  instance_type  = "c5.xlarge"
+  instance_types = ["c5.xlarge", "c5d.xlarge", "c7i.xlarge", "c6i.xlarge"]
+  ami_name       = "aeternity-ubuntu-18.04-v1653564902"
 
+  root_volume_size        = 8
   additional_storage      = true
   additional_storage_size = 500
 
   asg_target_groups = module.lb_main_oregon.target_groups
+
+  tags = {
+    role  = "aenode"
+    env   = "api_main"
+    envid = "api_main"
+  }
+
+  config_tags = {
+    bootstrap_version = var.bootstrap_version
+    vault_role        = "ae-node"
+    vault_addr        = var.vault_addr
+    node_config       = "secret/aenode/config/api_main"
+  }
 
   providers = {
     aws = aws.us-west-2
@@ -69,7 +89,7 @@ module "nodes_api_main_oregon" {
 }
 
 module "lb_main_oregon" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.3.4"
+  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.4.0"
   env             = "api_main"
   fqdn            = var.lb_fqdn
   dns_zone        = var.dns_zone
@@ -86,25 +106,35 @@ module "lb_main_oregon" {
 ### Singapore nodes and load-balancer ###
 
 module "nodes_api_main_singapore" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.6.1"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
   env               = "api_main"
-  envid             = "api_main"
-  bootstrap_version = var.bootstrap_version
-  vault_role        = "ae-node"
-  vault_addr        = var.vault_addr
 
   static_nodes   = 0
   spot_nodes_min = 2
   spot_nodes_max = 20
 
-  spot_price    = "0.15"
-  instance_type = "c5.xlarge"
-  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
+  instance_type  = "c6i.xlarge"
+  instance_types = ["c6i.xlarge", "c5d.xlarge", "c5.xlarge"]
+  ami_name       = "aeternity-ubuntu-18.04-v1653564902"
 
+  root_volume_size        = 8
   additional_storage      = true
   additional_storage_size = 500
 
   asg_target_groups = module.lb_main_singapore.target_groups
+
+  tags = {
+    role  = "aenode"
+    env   = "api_main"
+    envid = "api_main"
+  }
+
+  config_tags = {
+    bootstrap_version = var.bootstrap_version
+    vault_role        = "ae-node"
+    vault_addr        = var.vault_addr
+    node_config       = "secret/aenode/config/api_main"
+  }
 
   providers = {
     aws = aws.ap-southeast-1
@@ -112,7 +142,7 @@ module "nodes_api_main_singapore" {
 }
 
 module "lb_main_singapore" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.3.4"
+  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.4.0"
   env             = "api_main"
   fqdn            = var.lb_fqdn
   dns_zone        = var.dns_zone
