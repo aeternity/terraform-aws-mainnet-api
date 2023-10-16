@@ -1,8 +1,8 @@
 ### Stockholm nodes and load-balancer ###
 
 module "nodes_api_main_stockholm" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
-  env               = "api_main"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
+  env    = "api_main"
 
   static_nodes   = 0
   spot_nodes_min = 2
@@ -53,8 +53,8 @@ module "lb_main_stockholm" {
 ### Oregon nodes and load-balancer ###
 
 module "nodes_api_main_oregon" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
-  env               = "api_main"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
+  env    = "api_main"
 
   static_nodes   = 0
   spot_nodes_min = 2
@@ -106,8 +106,8 @@ module "lb_main_oregon" {
 ### Singapore nodes and load-balancer ###
 
 module "nodes_api_main_singapore" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
-  env               = "api_main"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
+  env    = "api_main"
 
   static_nodes   = 0
   spot_nodes_min = 2
