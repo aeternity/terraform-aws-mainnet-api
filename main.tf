@@ -36,15 +36,58 @@ module "nodes_api_main_stockholm" {
   }
 }
 
+module "nodes_api_main_stockholm_channels" {
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.0.1"
+  env    = "api_main"
+
+  static_nodes   = 1
+  spot_nodes_min = 0
+  spot_nodes_max = 0
+
+  instance_type  = "t3.large"
+  instance_types = ["t3.large", "c5.large", "m5.large"]
+  ami_name       = "aeternity-ubuntu-18.04-v1653564902"
+
+  root_volume_size        = 40
+  additional_storage      = true
+  additional_storage_size = 200
+
+  asg_target_groups = module.lb_main_stockholm.target_groups_channels
+  subnets           = module.nodes_api_main_stockholm.subnets
+  vpc_id            = module.nodes_api_main_stockholm.vpc_id
+
+  enable_state_channels = true
+
+  tags = {
+    role  = "aenode"
+    kind  = "channel"
+    env   = "api_main"
+    envid = "api_main"
+  }
+
+  config_tags = {
+    bootstrap_version = var.bootstrap_version
+    vault_role        = "ae-node"
+    vault_addr        = var.vault_addr
+    node_config       = "secret/aenode/config/api_main_channels"
+  }
+
+  providers = {
+    aws = aws.eu-north-1
+  }
+}
+
 module "lb_main_stockholm" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.4.0"
-  env             = "api_main"
-  fqdn            = var.lb_fqdn
-  dns_zone        = var.dns_zone
-  security_group  = module.nodes_api_main_stockholm.sg_id
-  vpc_id          = module.nodes_api_main_stockholm.vpc_id
-  subnets         = module.nodes_api_main_stockholm.subnets
-  dry_run_enabled = true
+  source                    = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.4.0"
+  env                       = "api_main"
+  fqdn                      = var.lb_fqdn
+  dns_zone                  = var.dns_zone
+  security_group            = module.nodes_api_main_stockholm.sg_id
+  vpc_id                    = module.nodes_api_main_stockholm.vpc_id
+  subnets                   = module.nodes_api_main_stockholm.subnets
+  dry_run_enabled           = true
+  state_channel_api_enabled = true
+
   providers = {
     aws = aws.eu-north-1
   }
