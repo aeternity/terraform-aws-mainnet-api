@@ -69,7 +69,7 @@ module "nodes_api_main_stockholm_channels" {
     bootstrap_version = var.bootstrap_version
     vault_role        = "ae-node"
     vault_addr        = var.vault_addr
-    node_config       = "secret/aenode/config/api_main_channels"
+    node_config       = "secret/aenode/config/api_main_channel"
   }
 
   providers = {
