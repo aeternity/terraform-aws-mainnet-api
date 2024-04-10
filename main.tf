@@ -1,7 +1,7 @@
 ### Stockholm nodes and load-balancer ###
 
 module "nodes_api_main_stockholm" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.1.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.3.0"
   env    = "api_main"
 
   static_nodes   = 0
@@ -12,7 +12,7 @@ module "nodes_api_main_stockholm" {
   instance_types = ["c6i.xlarge", "c5d.xlarge", "c5.xlarge", "c7i.xlarge"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
-  root_volume_size        = 8
+  root_volume_size        = 24
   additional_storage      = true
   additional_storage_size = 500
 
@@ -37,7 +37,7 @@ module "nodes_api_main_stockholm" {
 }
 
 module "nodes_api_main_stockholm_channels" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.1.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.3.0"
   env    = "api_main"
 
   static_nodes   = 1
@@ -96,7 +96,7 @@ module "lb_main_stockholm" {
 ### Oregon nodes and load-balancer ###
 
 module "nodes_api_main_oregon" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.1.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.3.0"
   env    = "api_main"
 
   static_nodes   = 0
@@ -107,7 +107,7 @@ module "nodes_api_main_oregon" {
   instance_types = ["c5.xlarge", "c5d.xlarge", "c7i.xlarge", "c6i.xlarge"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
-  root_volume_size        = 8
+  root_volume_size        = 24
   additional_storage      = true
   additional_storage_size = 500
 
@@ -149,7 +149,7 @@ module "lb_main_oregon" {
 ### Singapore nodes and load-balancer ###
 
 module "nodes_api_main_singapore" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.1.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.3.0"
   env    = "api_main"
 
   static_nodes   = 0
@@ -160,7 +160,7 @@ module "nodes_api_main_singapore" {
   instance_types = ["c6i.xlarge", "c5d.xlarge", "c5.xlarge"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
-  root_volume_size        = 8
+  root_volume_size        = 24
   additional_storage      = true
   additional_storage_size = 500
 
