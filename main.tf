@@ -1,7 +1,7 @@
 ### Stockholm nodes and load-balancer ###
 
 module "nodes_api_main_stockholm" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "api_main"
 
   static_nodes   = 0
@@ -37,7 +37,7 @@ module "nodes_api_main_stockholm" {
 }
 
 module "nodes_api_main_stockholm_channels" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "api_main"
 
   static_nodes   = 1
@@ -78,7 +78,7 @@ module "nodes_api_main_stockholm_channels" {
 }
 
 module "lb_main_stockholm" {
-  source                    = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.4.0"
+  source                    = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v2.0.0"
   env                       = "api_main"
   fqdn                      = var.lb_fqdn
   dns_zone                  = var.dns_zone
@@ -96,7 +96,7 @@ module "lb_main_stockholm" {
 ### Oregon nodes and load-balancer ###
 
 module "nodes_api_main_oregon" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "api_main"
 
   static_nodes   = 0
@@ -132,7 +132,7 @@ module "nodes_api_main_oregon" {
 }
 
 module "lb_main_oregon" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.4.0"
+  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v2.0.0"
   env             = "api_main"
   fqdn            = var.lb_fqdn
   dns_zone        = var.dns_zone
@@ -149,7 +149,7 @@ module "lb_main_oregon" {
 ### Singapore nodes and load-balancer ###
 
 module "nodes_api_main_singapore" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "api_main"
 
   static_nodes   = 0
@@ -185,7 +185,7 @@ module "nodes_api_main_singapore" {
 }
 
 module "lb_main_singapore" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v1.4.0"
+  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v2.0.0"
   env             = "api_main"
   fqdn            = var.lb_fqdn
   dns_zone        = var.dns_zone
@@ -202,7 +202,7 @@ module "lb_main_singapore" {
 ## CDN ##
 
 module "gateway_main" {
-  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=v3.2.4"
+  source          = "github.com/aeternity/terraform-aws-api-gateway?ref=v4.0.0"
   env             = "api_main"
   dns_zone        = var.dns_zone
   api_domain      = var.domain
