@@ -14,7 +14,7 @@ module "nodes_api_main_stockholm" {
 
   root_volume_size        = 24
   additional_storage      = true
-  additional_storage_size = 500
+  additional_storage_size = 600
 
   asg_target_groups = module.lb_main_stockholm.target_groups
 
@@ -109,7 +109,7 @@ module "nodes_api_main_oregon" {
 
   root_volume_size        = 24
   additional_storage      = true
-  additional_storage_size = 500
+  additional_storage_size = 600
 
   asg_target_groups = module.lb_main_oregon.target_groups
 
@@ -162,7 +162,7 @@ module "nodes_api_main_singapore" {
 
   root_volume_size        = 24
   additional_storage      = true
-  additional_storage_size = 500
+  additional_storage_size = 600
 
   asg_target_groups = module.lb_main_singapore.target_groups
 
