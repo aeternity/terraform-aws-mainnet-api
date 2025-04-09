@@ -95,109 +95,109 @@ module "lb_main_stockholm" {
 
 ### Oregon nodes and load-balancer ###
 
-module "nodes_api_main_oregon" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
-  env    = "api_main"
+# module "nodes_api_main_oregon" {
+#   source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
+#   env    = "api_main"
 
-  static_nodes   = 0
-  spot_nodes_min = 2
-  spot_nodes_max = 20
+#   static_nodes   = 0
+#   spot_nodes_min = 2
+#   spot_nodes_max = 20
 
-  instance_type  = "c5.xlarge"
-  instance_types = ["c5.xlarge", "c5d.xlarge", "c7i.xlarge", "c6i.xlarge"]
-  ami_name       = "aeternity-ubuntu-22.04-v1720022468"
+#   instance_type  = "c5.xlarge"
+#   instance_types = ["c5.xlarge", "c5d.xlarge", "c7i.xlarge", "c6i.xlarge"]
+#   ami_name       = "aeternity-ubuntu-22.04-v1720022468"
 
-  root_volume_size        = 24
-  additional_storage      = true
-  additional_storage_size = 600
+#   root_volume_size        = 24
+#   additional_storage      = true
+#   additional_storage_size = 600
 
-  asg_target_groups = module.lb_main_oregon.target_groups
+#   asg_target_groups = module.lb_main_oregon.target_groups
 
-  tags = {
-    role  = "aenode"
-    env   = "api_main"
-    envid = "api_main"
-  }
+#   tags = {
+#     role  = "aenode"
+#     env   = "api_main"
+#     envid = "api_main"
+#   }
 
-  config_tags = {
-    bootstrap_version = var.bootstrap_version
-    vault_role        = "ae-node"
-    vault_addr        = var.vault_addr
-    bootstrap_config  = "secret2/aenode/config/api_main"
-  }
+#   config_tags = {
+#     bootstrap_version = var.bootstrap_version
+#     vault_role        = "ae-node"
+#     vault_addr        = var.vault_addr
+#     bootstrap_config  = "secret2/aenode/config/api_main"
+#   }
 
-  providers = {
-    aws = aws.us-west-2
-  }
-}
+#   providers = {
+#     aws = aws.us-west-2
+#   }
+# }
 
-module "lb_main_oregon" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v2.0.0"
-  env             = "api_main"
-  fqdn            = var.lb_fqdn
-  dns_zone        = var.dns_zone
-  security_group  = module.nodes_api_main_oregon.sg_id
-  vpc_id          = module.nodes_api_main_oregon.vpc_id
-  subnets         = module.nodes_api_main_oregon.subnets
-  dry_run_enabled = true
+# module "lb_main_oregon" {
+#   source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v2.0.0"
+#   env             = "api_main"
+#   fqdn            = var.lb_fqdn
+#   dns_zone        = var.dns_zone
+#   security_group  = module.nodes_api_main_oregon.sg_id
+#   vpc_id          = module.nodes_api_main_oregon.vpc_id
+#   subnets         = module.nodes_api_main_oregon.subnets
+#   dry_run_enabled = true
 
-  providers = {
-    aws = aws.us-west-2
-  }
-}
+#   providers = {
+#     aws = aws.us-west-2
+#   }
+# }
 
 ### Singapore nodes and load-balancer ###
 
-module "nodes_api_main_singapore" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
-  env    = "api_main"
+# module "nodes_api_main_singapore" {
+#   source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
+#   env    = "api_main"
 
-  static_nodes   = 0
-  spot_nodes_min = 2
-  spot_nodes_max = 20
+#   static_nodes   = 0
+#   spot_nodes_min = 2
+#   spot_nodes_max = 20
 
-  instance_type  = "c6i.xlarge"
-  instance_types = ["c6i.xlarge", "c5d.xlarge", "c5.xlarge"]
-  ami_name       = "aeternity-ubuntu-22.04-v1720022468"
+#   instance_type  = "c6i.xlarge"
+#   instance_types = ["c6i.xlarge", "c5d.xlarge", "c5.xlarge"]
+#   ami_name       = "aeternity-ubuntu-22.04-v1720022468"
 
-  root_volume_size        = 24
-  additional_storage      = true
-  additional_storage_size = 600
+#   root_volume_size        = 24
+#   additional_storage      = true
+#   additional_storage_size = 600
 
-  asg_target_groups = module.lb_main_singapore.target_groups
+#   asg_target_groups = module.lb_main_singapore.target_groups
 
-  tags = {
-    role  = "aenode"
-    env   = "api_main"
-    envid = "api_main"
-  }
+#   tags = {
+#     role  = "aenode"
+#     env   = "api_main"
+#     envid = "api_main"
+#   }
 
-  config_tags = {
-    bootstrap_version = var.bootstrap_version
-    vault_role        = "ae-node"
-    vault_addr        = var.vault_addr
-    bootstrap_config  = "secret2/aenode/config/api_main"
-  }
+#   config_tags = {
+#     bootstrap_version = var.bootstrap_version
+#     vault_role        = "ae-node"
+#     vault_addr        = var.vault_addr
+#     bootstrap_config  = "secret2/aenode/config/api_main"
+#   }
 
-  providers = {
-    aws = aws.ap-southeast-1
-  }
-}
+#   providers = {
+#     aws = aws.ap-southeast-1
+#   }
+# }
 
-module "lb_main_singapore" {
-  source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v2.0.0"
-  env             = "api_main"
-  fqdn            = var.lb_fqdn
-  dns_zone        = var.dns_zone
-  security_group  = module.nodes_api_main_singapore.sg_id
-  vpc_id          = module.nodes_api_main_singapore.vpc_id
-  subnets         = module.nodes_api_main_singapore.subnets
-  dry_run_enabled = true
+# module "lb_main_singapore" {
+#   source          = "github.com/aeternity/terraform-aws-api-loadbalancer?ref=v2.0.0"
+#   env             = "api_main"
+#   fqdn            = var.lb_fqdn
+#   dns_zone        = var.dns_zone
+#   security_group  = module.nodes_api_main_singapore.sg_id
+#   vpc_id          = module.nodes_api_main_singapore.vpc_id
+#   subnets         = module.nodes_api_main_singapore.subnets
+#   dry_run_enabled = true
 
-  providers = {
-    aws = aws.ap-southeast-1
-  }
-}
+#   providers = {
+#     aws = aws.ap-southeast-1
+#   }
+# }
 
 ## CDN ##
 
