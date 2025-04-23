@@ -4,9 +4,9 @@ module "nodes_api_main_stockholm" {
   source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "api_main"
 
-  static_nodes   = 0
-  spot_nodes_min = 2
-  spot_nodes_max = 20
+  static_nodes   = 2
+  spot_nodes_min = 0
+  spot_nodes_max = 0
 
   instance_type  = "c6i.xlarge"
   instance_types = ["c6i.xlarge", "c5d.xlarge", "c5.xlarge", "c7i.xlarge"]
@@ -213,6 +213,7 @@ module "gateway_main" {
   ae_mdw_fqdn     = var.ae_mdw_fqdn
   ch_fqdn         = module.lb_main_stockholm.dns_name
   headers         = var.headers
+  price_class     = "PriceClass_100"
 
   api_cache_default_ttl = 1
   mdw_cache_default_ttl = 3
