@@ -4,7 +4,7 @@ module "nodes_api_main_stockholm" {
   source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "api_main"
 
-  static_nodes   = 2
+  static_nodes   = 3
   spot_nodes_min = 0
   spot_nodes_max = 0
 
