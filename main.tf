@@ -14,7 +14,7 @@ module "nodes_api_main_stockholm" {
 
   root_volume_size        = 24
   additional_storage      = true
-  additional_storage_size = 600
+  additional_storage_size = 1000
 
   asg_target_groups = module.lb_main_stockholm.target_groups
 
