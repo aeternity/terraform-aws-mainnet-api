@@ -44,8 +44,11 @@ module "nodes_api_main_stockholm_channels" {
   spot_nodes_min = 0
   spot_nodes_max = 0
 
-  instance_type  = "t3.large"
-  instance_types = ["t3.large", "c5.large", "m5.large"]
+  # 2026-07-20: t3.large -> m6i.large. CPUCreditBalance declining trend over 7d (819->718),
+  # same burstable-exhaustion pattern as the mainnet seeds. See gitops-all investigation doc +
+  # ~/aeternity-handover/aws-aenode-fleet.md.
+  instance_type  = "m6i.large"
+  instance_types = ["m6i.large", "c6i.large", "c5.large", "m5.large"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
   root_volume_size        = 40
