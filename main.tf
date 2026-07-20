@@ -8,8 +8,13 @@ module "nodes_api_main_stockholm" {
   spot_nodes_min = 0
   spot_nodes_max = 0
 
-  instance_type  = "c6i.xlarge"
-  instance_types = ["c6i.xlarge", "c5d.xlarge", "c5.xlarge", "c7i.xlarge"]
+  # 2026-07-20: c6i.xlarge -> c6i.2xlarge. api_main nodes hitting 92-99% max CPU daily
+  # (fixed-perf, not burstable) with real user-facing impact: LB 5xx error rate up to
+  # 12% on peak-traffic days (2026-07-19), max response time pinned at the ~30s LB
+  # timeout ceiling every day. See ~/aeternity-handover/aws-aenode-fleet.md and
+  # ~/aeternity/gitops-all/mpt-cache-pr4623-investigation.md for full investigation.
+  instance_type  = "c6i.2xlarge"
+  instance_types = ["c6i.2xlarge", "c5d.2xlarge", "c5.2xlarge", "c7i.2xlarge"]
   ami_name       = "aeternity-ubuntu-22.04-v1720022468"
 
   root_volume_size        = 24
