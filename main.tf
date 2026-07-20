@@ -11,8 +11,7 @@ module "nodes_api_main_stockholm" {
   # 2026-07-20: c6i.xlarge -> c6i.2xlarge. api_main nodes hitting 92-99% max CPU daily
   # (fixed-perf, not burstable) with real user-facing impact: LB 5xx error rate up to
   # 12% on peak-traffic days (2026-07-19), max response time pinned at the ~30s LB
-  # timeout ceiling every day. See ~/aeternity-handover/aws-aenode-fleet.md and
-  # ~/aeternity/gitops-all/mpt-cache-pr4623-investigation.md for full investigation.
+  # timeout ceiling every day.
   instance_type  = "c6i.2xlarge"
   instance_types = ["c6i.2xlarge", "c5d.2xlarge", "c5.2xlarge", "c7i.2xlarge"]
   ami_name       = "aeternity-ubuntu-22.04-v1720022468"
@@ -50,8 +49,7 @@ module "nodes_api_main_stockholm_channels" {
   spot_nodes_max = 0
 
   # 2026-07-20: t3.large -> m6i.large. CPUCreditBalance declining trend over 7d (819->718),
-  # same burstable-exhaustion pattern as the mainnet seeds. See gitops-all investigation doc +
-  # ~/aeternity-handover/aws-aenode-fleet.md.
+  # same burstable-exhaustion pattern as the mainnet seeds.
   instance_type  = "m6i.large"
   instance_types = ["m6i.large", "c6i.large", "c5.large", "m5.large"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
